@@ -1,0 +1,96 @@
+{
+  "$schema": "https://mimo.xiaomi.com/mimocode/config.json",
+  "mcp": {
+    "brain": {
+      "type": "local",
+      "command": [
+        "npx",
+        "-y",
+        "@modelcontextprotocol/server-filesystem",
+        "/home/reza/ObsidianVault"
+      ],
+      "enabled": true
+    }
+  },
+  "model": "nvidia/nvidia/nemotron-3-super-120b-a12b",
+  "provider": {
+    "nvidia": {
+      "name": "Nvidia NIM",
+      "npm": "@ai-sdk/openai-compatible",
+      "options": {
+        "baseURL": "https://integrate.api.nvidia.com/v1",
+        "apiKey": "nvapi-4"
+      },
+      "limits": {
+        "maxRequestsPerMinute": 40,
+        "maxConcurrent": 2,
+        "retryOn429": true,
+        "defaultRetryAfterSeconds": 60
+      },
+      "models": {
+        "meta/llama-3.1-70b-instruct": {
+          "name": "⭐ Llama 3.1 70B (General Purpose & Tasks)"
+        },
+        "meta/llama-3.3-70b-instruct": {
+          "name": "⭐ Llama 3.3 70B (Reliable Coding & Logic)"
+        },
+        "nvidia/nemotron-3-super-120b-a12b": {
+          "name": "⭐ Nemotron 3 Super (Best Agentic & Code - Default)"
+        },
+        "nvidia/nemotron-3-ultra-550b-a55b": {
+          "name": "⭐ Nemotron 3 Ultra 550B (Heavy Reasoning & Complex Architecture)"
+        },
+        "deepseek-ai/deepseek-v4-flash": {
+          "name": "⭐ DeepSeek V4 Flash (Fast Daily Coding)"
+        },
+        "deepseek-ai/deepseek-v4-pro": {
+          "name": "⭐ DeepSeek V4 Pro (Advanced MoE Deep Coding)"
+        },
+        "minimaxai/minimax-m3": {
+          "name": "⭐ MiniMax M3 Preview (Strong Tool-Calling & Vision)"
+        },
+        "z-ai/glm-5.2": {
+          "name": "⭐ GLM 5.2 (Agentic Workflows & Long Horizon)"
+        }
+      }
+    },
+    "avalai": {
+      "name": "AvalAI",
+      "npm": "@ai-sdk/openai-compatible",
+      "options": {
+        "baseURL": "https://api.avalai.ir/v1",
+        "apiKey": "aqoyQFcoVNj"
+      },
+      "limits": {
+        "maxRequestsPerMinute": 60,
+        "maxConcurrent": 2,
+        "retryOn429": true,
+        "defaultRetryAfterSeconds": 30
+      },
+      "whitelist": [
+        "gpt-5.6-sol",
+        "deepseek-chat",
+        "deepseek-reasoner",
+        "claude-3-5-sonnet",
+        "o4-mini"
+      ],
+      "models": {
+        "gpt-5.6-sol": {
+          "name": "gpt-5.6-sol (Ultra Cheap & Fast)"
+        },
+        "deepseek-chat": {
+          "name": "DeepSeek V3 (Best Price/Performance Coding)"
+        },
+        "deepseek-reasoner": {
+          "name": "DeepSeek R1 (Logical & Heavy Reasoning)"
+        },
+        "claude-3-5-sonnet": {
+          "name": "Claude 3.5 Sonnet (Premium Coding)"
+        },
+        "o4-mini": {
+          "name": "GPT-4o (Standard Flagship)"
+        }
+      }
+    }
+  }
+}
